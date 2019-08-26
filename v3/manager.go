@@ -62,6 +62,15 @@ func (h *Manager) GetCircuit(name string) *Circuit {
 	return h.circuitMap[name]
 }
 
+func (h *Manager) DeleteCircuit(name string) {
+	h.mu.Lock()
+	defer h.mu.Unlock()
+	if h.circuitMap == nil {
+		return
+	}
+	delete(h.circuitMap, name)
+}
+
 // MustCreateCircuit calls CreateCircuit, but panics if the circuit name already exists
 func (h *Manager) MustCreateCircuit(name string, config ...Config) *Circuit {
 	c, err := h.CreateCircuit(name, config...)
