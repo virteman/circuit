@@ -1,5 +1,5 @@
-module github.com/cep21/circuit
+module github.com/edwardhey/circuit
 
-require github.com/cep21/circuit/v3 v3.0.0
+require github.com/edwardhey/circuit/v3 v3.0.0
 
-replace github.com/cep21/circuit/v3 => ./v3
+replace github.com/edwardhey/circuit/v3 => ./v3

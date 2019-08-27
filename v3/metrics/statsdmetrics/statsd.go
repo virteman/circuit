@@ -6,9 +6,9 @@ import (
 
 	"sync"
 
-	"github.com/cep21/circuit/v3"
-	"github.com/cep21/circuit/v3/faststats"
-	"github.com/cep21/circuit/v3/metrics/responsetimeslo"
+	"github.com/edwardhey/circuit/v3"
+	"github.com/edwardhey/circuit/v3/faststats"
+	"github.com/edwardhey/circuit/v3/metrics/responsetimeslo"
 )
 
 // Our interface should be satisfied by go-statsd-client

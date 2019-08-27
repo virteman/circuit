@@ -3,7 +3,7 @@ https://github.com/golang-samples/gopher-vector design by Takuya Ueda -->
 ![Mascot](https://cep21.github.io/circuit/imgs/hystrix-gopher_100px.png)
 # Circuit
 [![Build Status](https://travis-ci.org/cep21/circuit.svg?branch=master)](https://travis-ci.org/cep21/circuit)
-[![GoDoc](https://godoc.org/github.com/cep21/circuit?status.svg)](https://godoc.org/github.com/cep21/circuit)
+[![GoDoc](https://godoc.org/github.com/edwardhey/circuit?status.svg)](https://godoc.org/github.com/edwardhey/circuit)
 [![Coverage Status](https://coveralls.io/repos/github/cep21/circuit/badge.svg)](https://coveralls.io/github/cep21/circuit)
 
 Circuit is an efficient and feature complete [Hystrix](https://github.com/Netflix/Hystrix) like Go implementation of
@@ -22,7 +22,7 @@ Learn more about the problems Hystrix and other circuit breakers solve on the
 * Open/Close state of a circuit is a clear early warning sign of downstream failures.
 * Circuits allow you to protect your dependencies from abnormal rushes of traffic.
 
-There are a large number of examples on the [godoc](https://godoc.org/github.com/cep21/circuit#pkg-examples) that are
+There are a large number of examples on the [godoc](https://godoc.org/github.com/edwardhey/circuit#pkg-examples) that are
 worth looking at.  They tend to be more up to date than the README doc.
 
 # Feature set
@@ -43,11 +43,11 @@ worth looking at.  They tend to be more up to date than the README doc.
 * Many tests and examples
 * Good inline documentation
 * Generatable interface wrapping support with https://github.com/twitchtv/circuitgen
-* Support for [Additive increase/multiplicative decrease](https://github.com/cep21/aimdcloser)
+* Support for [Additive increase/multiplicative decrease](https://github.com/edwardhey/aimdcloser)
 
 # Usage
 
-## [Hello world circuit](https://godoc.org/github.com/cep21/circuit#example-Manager-MustCreateCircuit-Helloworld)
+## [Hello world circuit](https://godoc.org/github.com/edwardhey/circuit#example-Manager-MustCreateCircuit-Helloworld)
 
 This example shows how to create a hello-world circuit from the circuit manager
 
@@ -64,7 +64,7 @@ fmt.Println("Result of execution:", errResult)
 // Output: Result of execution: <nil>
 ```
 
-## [Hello world fallback](https://godoc.org/github.com/cep21/circuit#example-Circuit-Execute-Fallbackhelloworld)
+## [Hello world fallback](https://godoc.org/github.com/edwardhey/circuit#example-Circuit-Execute-Fallbackhelloworld)
 
 This example shows how fallbacks execute to return alternate errors or provide
 logic when the circuit is open.
@@ -83,7 +83,7 @@ fmt.Println("Execution result:", errResult)
 // Execution result: <nil>
 ```
 
-## [Running inside a Goroutine](https://godoc.org/github.com/cep21/circuit#example-Circuit-Go)
+## [Running inside a Goroutine](https://godoc.org/github.com/edwardhey/circuit#example-Circuit-Go)
 
 It is recommended to use `circuit.Execute` and a context aware function.  If, however, you want to exit
 your run function early and leave it hanging (possibly forever), then you can call `circuit.Go`.
@@ -106,7 +106,7 @@ fmt.Printf("err=%v", errResult)
 // Output: err=context deadline exceeded
 ```
 
-## [Hystrix Configuration](https://godoc.org/github.com/cep21/circuit/closers/hystrix#example-ConfigFactory-Configure)
+## [Hystrix Configuration](https://godoc.org/github.com/edwardhey/circuit/closers/hystrix#example-ConfigFactory-Configure)
 
 All configuration parameters are documented in config.go.  Your circuit open/close logic configuration is documented
 with the logic.  For hystrix, this configuration is in closers/hystrix and well documented on
@@ -137,7 +137,7 @@ fmt.Println("This is a hystrix configured circuit", c.Name())
 // Output: This is a hystrix configured circuit hystrix-circuit
 ```
 
-## [Enable dashboard metrics](https://godoc.org/github.com/cep21/circuit/metriceventstream#example-MetricEventStream)
+## [Enable dashboard metrics](https://godoc.org/github.com/edwardhey/circuit/metriceventstream#example-MetricEventStream)
 
 Dashboard metrics can be enabled with the MetricEventStream object. This example creates an event stream handler,
 starts it, then later closes the handler
@@ -165,7 +165,7 @@ if err := es.Close(); err != nil {
 // Output:
 ```
 
-## [Enable expvar](https://godoc.org/github.com/cep21/circuit#example-Manager-Var)
+## [Enable expvar](https://godoc.org/github.com/edwardhey/circuit#example-Manager-Var)
 
 If you wanted to publish hystrix information on Expvar, you can register your manager.
 
@@ -174,7 +174,7 @@ h := circuit.Manager{}
 expvar.Publish("hystrix", h.Var())
 ```
 
-## [Custom metrics](https://godoc.org/github.com/cep21/circuit#example-Config--Custommetrics)
+## [Custom metrics](https://godoc.org/github.com/edwardhey/circuit#example-Config--Custommetrics)
 
 Implement interfaces CmdMetricCollector or FallbackMetricCollector to know what happens with commands or fallbacks.
 Then pass those implementations to configure.
@@ -190,7 +190,7 @@ config := circuit.Config{
 circuit.NewCircuitFromConfig("custom-metrics", config)
 ```
 
-## [Panics](https://godoc.org/github.com/cep21/circuit#example-Circuit-Execute-Panics)
+## [Panics](https://godoc.org/github.com/edwardhey/circuit#example-Circuit-Execute-Panics)
 
 Code executed with `Execute` does not spawn a goroutine and panics naturally go up the call stack to the caller.
 This is also true for `Go`, where we attempt to recover and throw panics on the same stack that
@@ -212,7 +212,7 @@ c.Execute(context.Background(), func(ctx context.Context) error {
 // Output: I recovered from a panic oh no
 ```
 
-## [Runtime configuration changes](https://godoc.org/github.com/cep21/circuit/closers/hystrix#example-Closer-SetConfigThreadSafe)
+## [Runtime configuration changes](https://godoc.org/github.com/edwardhey/circuit/closers/hystrix#example-Closer-SetConfigThreadSafe)
 
 Most configuration properties on
 [the Hystrix Configuration page](https://github.com/Netflix/Hystrix/wiki/Configuration) that say they are modifyable at
@@ -240,7 +240,7 @@ fmt.Println("The new sleep window", c.OpenToClose.(*hystrix.Closer).Config().Sle
 // The new sleep window 3s
 ```
 
-## [Not counting early terminations as failures](https://godoc.org/github.com/cep21/circuit#example-Circuit--Noearlyterminate)
+## [Not counting early terminations as failures](https://godoc.org/github.com/edwardhey/circuit#example-Circuit--Noearlyterminate)
 
 If the context passed into a circuit function ends, before the circuit can
 finish, it does not count the circuit as unhealthy.  You can disable this
@@ -278,7 +278,7 @@ fmt.Println("The error and timeout count is", rs.ErrTimeouts.TotalSum() + rs.Err
 // The error and timeout count is 0
 ```
 
-## [Configuration factories](https://godoc.org/github.com/cep21/circuit#example-CommandPropertiesConstructor)
+## [Configuration factories](https://godoc.org/github.com/edwardhey/circuit#example-CommandPropertiesConstructor)
 
 Configuration factories are supported on the root manager object.  This allows you to create dynamic configuration per
 circuit name.
@@ -312,7 +312,7 @@ fmt.Println("The timeout of v1 is", h.GetCircuit("v1").Config().Execution.Timeou
 // Output: The timeout of v1 is 1s
 ```
 
-## [StatsD configuration factory](https://godoc.org/github.com/cep21/circuit/metrics/statsdmetrics#example-CommandFactory-CommandProperties)
+## [StatsD configuration factory](https://godoc.org/github.com/edwardhey/circuit/metrics/statsdmetrics#example-CommandFactory-CommandProperties)
 
 A configuration factory for statsd is provided inside ./metrics/statsdmetrics
 
@@ -333,7 +333,7 @@ h.MustCreateCircuit("using-statsd")
 // Output:
 ```
 
-## [Service health tracking](https://godoc.org/github.com/cep21/circuit/metrics/responsetimeslo#example-Factory)
+## [Service health tracking](https://godoc.org/github.com/edwardhey/circuit/metrics/responsetimeslo#example-Factory)
 
 Most services have the concept of an SLA, or service level agreement.  Unfortunantly,
 this is usually tracked by the service owners, which creates incentives for people to
@@ -365,7 +365,7 @@ h := circuit.Manager{
 h.CreateCircuit("circuit-with-slo")
 ```
 
-## [Not counting user error as a fault](https://godoc.org/github.com/cep21/circuit#example-BadRequest)
+## [Not counting user error as a fault](https://godoc.org/github.com/edwardhey/circuit#example-BadRequest)
 
 Sometimes users pass invalid functions to the input of your circuit.  You want to return
 an error in that case, but not count the error as a failure of the circuit.  Use `SimpleBadRequest`
@@ -396,7 +396,7 @@ fmt.Println("Result of 10/0 is", err)
 // Output: Result of 10/0 is someone tried to divide by zero
 ```
 
-# [Benchmarking](https://github.com/cep21/circuit/blob/master/benchmarking/benchmark_hystrix_test.go)
+# [Benchmarking](https://github.com/edwardhey/circuit/blob/master/benchmarking/benchmark_hystrix_test.go)
 
 This implementation is more efficient than go-hystrix in every configuration.  It has comparable efficiency
 to other implementations, in most faster when running with high concurrency. Run benchmarks with `make bench`.
@@ -415,7 +415,7 @@ there is a better way to benchmark one of these circuits, please let me know!
 cd benchmarking && go test -v -benchmem -run=^$ -bench=. . 2> /dev/null
 goos: darwin
 goarch: amd64
-pkg: github.com/cep21/circuit/benchmarking
+pkg: github.com/edwardhey/circuit/benchmarking
 BenchmarkCiruits/cep21-circuit/Hystrix/passing/1-8       	 2000000	       896 ns/op	     192 B/op	       4 allocs/op
 BenchmarkCiruits/cep21-circuit/Hystrix/passing/75-8      	 3000000	       500 ns/op	     192 B/op	       4 allocs/op
 BenchmarkCiruits/cep21-circuit/Hystrix/failing/1-8       	10000000	       108 ns/op	       0 B/op	       0 allocs/op
@@ -449,7 +449,7 @@ BenchmarkCiruits/iand_circuit/Default/passing/75-8       	 5000000	       349 ns
 BenchmarkCiruits/iand_circuit/Default/failing/1-8        	100000000	        20.4 ns/op	       0 B/op	       0 allocs/op
 BenchmarkCiruits/iand_circuit/Default/failing/75-8       	300000000	         5.46 ns/op	       0 B/op	       0 allocs/op
 PASS
-ok      github.com/cep21/circuit/benchmarking   59.518s
+ok      github.com/edwardhey/circuit/benchmarking   59.518s
 ```
 
 Limiting to just high concurrency passing circuits (the common case).
@@ -463,11 +463,11 @@ BenchmarkCiruits/handy/Default/passing/75-8              	 1000000	      1795 ns
 BenchmarkCiruits/iand_circuit/Default/passing/75-8       	 5000000	       349 ns/op	       0 B/op	       0 allocs/op
 ```
 
-# [Development](https://github.com/cep21/circuit/blob/master/Makefile)
+# [Development](https://github.com/edwardhey/circuit/blob/master/Makefile)
 
 Make sure your tests pass with `make test` and your lints pass with `make lint`.
 
-# [Example](https://github.com/cep21/circuit/blob/master/example/main.go)
+# [Example](https://github.com/edwardhey/circuit/blob/master/example/main.go)
 
 You can run an example set of circuits inside the /example directory
 
