@@ -17,10 +17,10 @@ import (
 
 	"flag"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/closers/hystrix"
-	"github.com/edwardhey/circuit/v3/metriceventstream"
-	"github.com/edwardhey/circuit/v3/metrics/rolling"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/closers/hystrix"
+	"github.com/virteman/circuit/v3/metriceventstream"
+	"github.com/virteman/circuit/v3/metrics/rolling"
 )
 
 // nolint:lll

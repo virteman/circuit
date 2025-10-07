@@ -6,9 +6,9 @@ import (
 
 	"sync"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/faststats"
-	"github.com/edwardhey/circuit/v3/internal/evar"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/faststats"
+	"github.com/virteman/circuit/v3/internal/evar"
 )
 
 // StatFactory helps the process of making stat collectors for circuit breakers

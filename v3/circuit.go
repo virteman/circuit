@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/edwardhey/circuit/v3/faststats"
+	"github.com/virteman/circuit/v3/faststats"
 )
 
 // Circuit is a circuit breaker pattern implementation that can accept commands and open/close on failures

@@ -2,8 +2,8 @@ package statsdmetrics_test
 
 import (
 	"github.com/cactus/go-statsd-client/statsd"
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/metrics/statsdmetrics"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/metrics/statsdmetrics"
 )
 
 // Our interface should be satisfied by go-statsd-client

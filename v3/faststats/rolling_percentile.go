@@ -9,7 +9,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/edwardhey/circuit/v3/internal/evar"
+	"github.com/virteman/circuit/v3/internal/evar"
 )
 
 // RollingPercentile is a bucketed array of time.Duration that cycles over time

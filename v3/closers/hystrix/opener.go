@@ -6,8 +6,8 @@ import (
 
 	"encoding/json"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/faststats"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/faststats"
 )
 
 // Opener is ClosedToOpen that opens a circuit after a threshold and % error has been

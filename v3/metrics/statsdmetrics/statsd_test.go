@@ -9,9 +9,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/internal/clock"
-	"github.com/edwardhey/circuit/v3/metrics/responsetimeslo"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/internal/clock"
+	"github.com/virteman/circuit/v3/metrics/responsetimeslo"
 	"github.com/stretchr/testify/require"
 )
 

@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/edwardhey/circuit/v3/internal/clock"
-	"github.com/edwardhey/circuit/v3/internal/testhelp"
+	"github.com/virteman/circuit/v3/internal/clock"
+	"github.com/virteman/circuit/v3/internal/testhelp"
 )
 
 func TestTimedCheck_Empty(t *testing.T) {

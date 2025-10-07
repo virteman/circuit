@@ -1,6 +1,6 @@
 /*
 Package circuit is a Go implementation of the circuit breaker pattern.  Most documentation is available on
-the github README page https://github.com/edwardhey/circuit/blob/master/README.md
+the github README page https://github.com/virteman/circuit/blob/master/README.md
 
 Use case
 

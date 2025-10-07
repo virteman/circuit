@@ -1,6 +1,6 @@
 package hystrix
 
-import "github.com/edwardhey/circuit/v3"
+import "github.com/virteman/circuit/v3"
 
 // Factory aids making hystrix circuit logic
 type Factory struct {

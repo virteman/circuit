@@ -5,9 +5,9 @@ import (
 
 	"log"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/metriceventstream"
-	"github.com/edwardhey/circuit/v3/metrics/rolling"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/metriceventstream"
+	"github.com/virteman/circuit/v3/metrics/rolling"
 )
 
 // This example creates an event stream handler, starts it, then later closes the handler

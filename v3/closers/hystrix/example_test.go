@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/closers/hystrix"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/closers/hystrix"
 )
 
 // This example configures the circuit to use Hystrix open/close logic with the default Hystrix parameters

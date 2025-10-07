@@ -7,8 +7,8 @@ import (
 
 	"expvar"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/faststats"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/faststats"
 )
 
 // Tracker sets up a response time SLO that has a reasonable meaning for hystrix.  Use it for an SLO like

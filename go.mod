@@ -1,6 +1,6 @@
 module github.com/virteman/circuit
 
-require github.com/virteman/circuit/v3 v3.0.0
+require github.com/virteman/circuit/v3 v3.0.3
 
 replace github.com/virteman/circuit/v3 => ./v3
 

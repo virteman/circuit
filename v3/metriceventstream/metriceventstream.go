@@ -9,10 +9,10 @@ import (
 
 	"io"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/closers/hystrix"
-	"github.com/edwardhey/circuit/v3/faststats"
-	"github.com/edwardhey/circuit/v3/metrics/rolling"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/closers/hystrix"
+	"github.com/virteman/circuit/v3/faststats"
+	"github.com/virteman/circuit/v3/metrics/rolling"
 )
 
 // MetricEventStream is a HTTP handler that supports hystrix's metric stream API

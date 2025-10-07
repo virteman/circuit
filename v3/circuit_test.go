@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/edwardhey/circuit/v3/faststats"
-	"github.com/edwardhey/circuit/v3/internal/testhelp"
+	"github.com/virteman/circuit/v3/faststats"
+	"github.com/virteman/circuit/v3/internal/testhelp"
 )
 
 func TestHappyCircuit(t *testing.T) {

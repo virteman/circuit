@@ -9,8 +9,8 @@ import (
 
 	"sync/atomic"
 
-	"github.com/edwardhey/circuit/v3"
-	"github.com/edwardhey/circuit/v3/internal/testhelp"
+	"github.com/virteman/circuit/v3"
+	"github.com/virteman/circuit/v3/internal/testhelp"
 )
 
 func TestCloser_closes(t *testing.T) {
